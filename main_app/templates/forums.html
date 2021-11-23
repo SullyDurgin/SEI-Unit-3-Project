@@ -1,63 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Spooky Forum</title>
-    <script src="https://kit.fontawesome.com/f52ea4d0e9.js" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="/static/css/base.css" />
-	</head>
-	<body>
-  <header>
-  <div class="navbar">
-    <nav class="nav">
-    <ul class="nav-list">
-    <li class="nav-item">
-      <a href="/">Home</a>
-      </li>
-      <li class="nav-item">
-      <a href="/forum">All Posts</a>
-      </li>
-      <li class="nav-item">
-      <a href="/about">About</a>
-      </li>
-       </li>
-      <li class="nav-item">
-      <a href="/about">Sign-Up</a>
-      </li>
-       <div class="search">
-    <div>
-      <input type="text" placeholder="search">
-      <button><i class="fa fa-search search-icon"></i></button>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="subforum">
+            {% if forums %}
+                <div class="subforum-title">
+                    <h1>Posts</h1>
+                </div>
+
+                {% for forum in forums %}
+                    <div class="subforum-row">
+                        <div class="subforum-icon subforum-column center">
+                            <i class="fa fa-ghost"></i>
+                        </div>
+                        <div class="subforum-description subforum-column">
+                            <h4><a href="{{forum.get_url}}">{{forum.title}}</a></h4>
+                            <p>Description: {{forum.description}} </p>
+                        </div>
+                        <div class="subforum-stats subforum-column center">
+                            <span>{{forum.num_posts}} Posts</span>
+                        </div>
+                        <div class="subforum-info subforum-column">
+                            {% if forum.last_post %}
+                                <b><a href="{{forum.last_post.get_url}}">Last post</a></b> by <a href="">{{forum.last_post.user.fullname|title}}</a> 
+                                <br>on <small>{{forum.last_post.date|date}}</small>
+                            {% else %}
+                                <span>No posts in this category.</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% else %}
+                <div class="subforum-title">
+                    <h1>you have no posts yet.</h1>
+                </div>
+            {% endif %}
+        </div>
     </div>
-    </ul>
-    </div>
-  </header>
-		<div class="container">
-			<div class="forum-post">
-				<div class="post-title">
-					<h1>Forums</h1>
-				</div>
-				<div class="post-row">
-					<div class="posts-icon post-column center">
-          <i class="fas fa-ghost"></i>
-          </div>
-          <div class="post-description post-column">
-            <h1><a href="/posts">Title:</a></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-        <div class="forum-info post-column center">
-          <span>12 Posts | 3 Topics</span>
-        </div>
-        <div class="post-info post-column">
-        <b><a href="">Last Post</a></b> by <a href="">User</a>
-        <br>
-        on <small>November 22 2021</small>
-        </div>
-			
-        </div>
-			</div>
-		</div>
-	</body>
-</html>
+
+    {% endblock content %}
