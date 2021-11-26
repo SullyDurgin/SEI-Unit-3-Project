@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="{% static 'css/forum-index.css' %}"
+/>
+{% endblock %} {% block content %}
+
+<section class="page-header">
+	<h1>Forum List</h1>
+</section>
+
+<section class="card-container">
+	{% for forum in forums %}
+	<div class="card">
+		<a href="{% url 'Forums_detail' forum.id %}">
+			<div class="card-content">
+				<div class="card-img-container">
+					
+				</div>
+				<h2 class="card-title">{{ forum.title }}</h2>
+				{% if forum.spookyLevel > 0 %}
+				<p>The spookiness Level is at: {{ forum.spookyLevel }} according to: {{ forum.author }}</p>
+				{% else %}
+				<p>Author: {{ forum.author }}</p>
+				{% endif %}
+				<p><small>{{ forum.comment }}</small></p>
+			</div>
+		</a>
+	</div>
+	{% endfor %}
+</section>
+
+{% endblock %}

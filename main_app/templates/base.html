@@ -6,39 +6,33 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="shortcut icon"
+			type="image/png"
+			href="{% static 'images/splash.svg' %}"
+		/>
 		<title>Spooky Forum</title>
-    <script src="https://kit.fontawesome.com/f52ea4d0e9.js" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="/static/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+		{% block head %} {% endblock %}
 	</head>
 	<body>
-  <header>
-  <div class="navbar">
-    <nav class="nav">
-    <ul class="nav-list">
-    <li class="nav-item">
-      <a href="/">Home</a>
-      </li>
-      <li class="nav-item">
-      <a href="/forum">All Posts</a>
-      </li>
-      <li class="nav-item">
-      <a href="/about">About</a>
-      </li>
-       </li>
-      <li class="nav-item">
-      <a href="/about">Sign-Up</a>
-      </li>
-       <div class="search">
-    <div>
-      <input type="text" placeholder="search">
-      <button><i class="fa fa-search search-icon"></i></button>
-    </div>
-    </ul>
-    </div>
-  </header>
-	
-        </div>
+		<header>
+			<div class="header-logo-container">
+				<a href="{% url 'home' %}">
+					<img
+						src="{% static 'images/header-logo.svg' %}"
+						alt="The forum Collector Logo"
+					/>
+				</a>
 			</div>
-		</div>
+			<nav>
+				<ul>
+					<li><a href="{% url 'forums_index' %}">All Forums</a></li>
+					<li><a href="{% url 'forums_create' %}">Add a Forum</a></li>
+					<li><a href="{% url 'about' %}">About</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>{% block content %} {% endblock %}</main>
 	</body>
 </html>

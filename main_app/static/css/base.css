@@ -1,149 +1,251 @@
-*{
-  box-sizing: border-box;
- 
-}
-
 html {
-  font-size: 14px;
-  font-family: monospace;
-  background-color: rgb(38, 2, 78);
+  box-sizing: border-box
 }
 
-a{
-  color: rgb(107, 233, 5);
-  text-decoration: none;
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
 }
 
-h1 {
-  font-size: 18px;
-  font-weight: 800;
+/* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
+:root {
+    font-size: 62.5%
 }
 
-.container{
-    margin: 20px;
-    padding: 20px;
-    color: antiquewhite;
-}
-
-.forum-post{
-  margin-top: 20px;
-}
-
-.post-title{
-  background-color: rgb(69, 58, 80);
-  padding: 5px;
-  border-radius: 5px;
-  margin: 4px;
-}
-
-.forum-post-description *{
-  margin-block: 0;
-}
-
-
-.post-row{
-  display: grid;
-  grid-template-columns: 7% 60% 13% 20%;
-}
-
-.post-column {
-  padding: 10px;
-  margin: 4px;
-  border-radius: 5px;
-  background-color:rgb(101, 75, 128);
-}
-
-.center{
+body {
+  margin: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  min-height: 100vh;
+  --nav-bg: rgba(104, 197, 248, .7);
+  --nav-bg-ff: rgba(104, 197, 248, .9);
+  --borders: rgb(36, 116, 248) solid 2px;
+  --text-color: rgb(17, 20, 17);
+  --link-hover-color: rgb(16, 56, 158);
+  --button-bg: rgb(245, 245, 245);
+  --button-bg-hover: rgb(226, 226, 226);
+  --submit: rgb(26, 128, 0);
+  --warn: rgb(255, 102, 0);
+  --danger: rgb(220, 20, 30);
+  --secondary: rgb(57, 57, 57);
+  --card-box-shadow: 5px 5px 6px -1px #AAA;
+  --font-xtreme: 4.2rem;
+  --font-xxl: 3.6rem;
+  --font-xl: 2.4rem;
+  --font-l: 1.8rem;
+  --font-reg: 1.6rem;
+  --card-border-radius: 6px;
 }
 
-.posts-icon {
-  font-size: 60px;
-}
-
-.search-icon {
-  color: black;
-  
-}
-
-.search {
-  display: flex;
-  justify-content: center;
-  color: black;
-}
-
-.table-head{
-  display: flex;
-  background-color: rgb(84, 75, 95);
-}
-
-.table-head div{
-  padding: 5px;
-  margin: 2px;
-}
-
-.table-head .topics{
-  flex: 75%;
-}
-
-.table-head .replies{
-  flex: 25%;
-}
-
-
-@media screen and (max-width: 600px) {
-
-  .container{
-    margin: 10px;
-    padding: 10px;
-  }
-
-.post-row{
-  display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-rows: 65% 35%;
-}
-
-}
-
-
-header{
-  margin-inline: 10px;
-}
-
-.navbar{
-  display: flex;
-  align-items: center;
-}
-
-.nav{
-  background-color: rgb(69, 58, 80);
-  padding: 10px;
+header {
   width: 100%;
-  display: inline-block;
-  border-radius: 5px;
-  max-height: 90px;
+  background: var(--nav-bg-ff);
+  border-bottom: var(--borders);
+}
+
+nav {
+  margin: 10px;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+}
+
+h2 {
+  font-size: var(--font-xl);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: var(--link-hover-color)
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav li {
+  padding: 5px 8px;
+}
+
+.header-logo-container {
+  margin: auto;
+  padding: 10px 20px 0;
+  max-width: 500px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.btn {
+  font-size: var(--font-l);
+  padding: 8px 16px;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+  text-decoration: none;
+  background-color: var(--button-bg);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
   margin-right: 10px;
 }
 
-.nav-list{
-  list-style-type: none;
-  overflow: hidden;
+.btn:hover {
+  background-color: var(--button-bg-hover);
 }
 
-
-.nav-item a{
-  float: left;
-  display: block;
-  text-align: center;
-  margin-inline: 20px;
-  font-size: 20px;
-  padding: 10px;
+.submit {
+  color: var(--submit);
+  border-color: var(--submit);
 }
 
-.nav-item a:hover{
-  background-color: purple;
-
+.secondary {
+  color: var(--secondary);
+  border-color: var(--secondary);
 }
+
+.warn {
+  color: var(--warn);
+  border-color: var(--warn);
+}
+
+.danger {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.page-header h1 {
+  font-size: var(--font-xxl);
+  margin: 0;
+}
+
+.page-header img {
+  height: 40px;
+  margin-left:15px;
+}
+
+.page-header img:first-of-type {
+  margin-left: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    align-items: center;
+  }
+
+  main {
+    max-width: 1300px;
+    min-height: calc(100vh - 53px);
+  }
+
+  nav,
+  .header-logo-container {
+    margin: 10px 0;
+    padding: 0 15px;
+  }
+
+  /* visual fix to help align logo */
+  .header-logo-container {
+    padding-top: 3px;
+  }
+
+  nav {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  nav ul {
+    flex-wrap: nowrap;
+  }
+
+  .header-logo-container {
+    width: 213px;
+  }
+
+  .page-header h1 {
+    font-size: var(--font-xtreme);
+  }
+  
+  .page-header img {
+    height: 50px;
+    margin-left:20px;
+  }
+  
+  .page-header img:first-of-type {
+    margin-left: 25px;
+  }
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    header {
+      background: var(--nav-bg);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    min-height: calc(100vh - 55px);
+  }
+  
+  header {
+    margin: 20px 20px 0 20px;
+    width: calc(100vw - 40px);
+    max-width: 1920px;
+    top: 20px;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  nav,
+  .header-logo-container {
+    margin: 0;
+    background: var(--nav-bg-ff);
+    border: var(--borders);
+    border-radius: 18px;
+  }
+
+  nav {
+    margin-left: auto;
+  }
+
+  .header-logo-container {
+    /* visual fix to help align logo */
+    padding-top: 6px;
+    width: 256px;
+    height: 35px;
+  }
