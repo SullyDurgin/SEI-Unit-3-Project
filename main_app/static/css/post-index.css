@@ -59,3 +59,21 @@ h1 {
   font-size: 60px;
   color: aliceblue;
 }
+
+@media screen and (max-width: 460px) {
+
+.container{
+  margin: 10px;
+  padding: 10px;
+}
+
+
+.subforum-row{
+  display: grid;
+  grid-template-columns: 20% 55% 25%;
+  
+
+}
+
+
+}

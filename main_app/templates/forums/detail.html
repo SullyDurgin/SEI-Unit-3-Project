@@ -58,9 +58,7 @@
 				{{forum.name}} has been posted all their topics for today!
 			</p>
 			{% else %}
-			<p class="unposted">{{forum.name}} might be hungry!</p>
-			{% endif %} {% csrf_token %} {{ post_form.as_p }}
-			<button type="submit" class="btn submit">Add post</button>
+		
 		</form>
 		<h3>Past posts</h3>
 		{% if forum.post_set.all.count %}
