@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Forum
+from .models import Forum, Posts
 from .forms import PostsForm
 
 
@@ -53,3 +53,26 @@ def add_posts(request, forum_id):
         new_posts.forum_id = forum_id
         new_posts.save()
     return redirect("forums_detail", forum_id=forum_id)
+
+
+class PostCreate(CreateView):
+  model = Posts
+  fields = '__all__'
+
+
+class PostList(ListView):
+  model = Posts
+
+
+class PostDetail(DetailView):
+  model = Posts
+
+
+class PostUpdate(UpdateView):
+  model = Posts
+  fields = ['title', 'author', 'date', 'comment']
+
+
+class PostDelete(DeleteView):
+  model = Posts
+  success_url = '/posts/'

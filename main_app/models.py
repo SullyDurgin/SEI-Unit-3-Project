@@ -39,3 +39,7 @@ class Posts(models.Model):
 
   def posts_for_today(self):
     return self.posts_set.filter(date=date.today()).count() >= len(TOPICS)
+    
+
+def get_absolute_url(self):
+    return reverse('posts_detail', kwargs={'pk': self.id})

@@ -1,89 +1,102 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
-<link
-	href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css"
-	rel="stylesheet"
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet" 
 />
-<link rel="stylesheet" href="{% static 'css/mcdp.css' %}" />
-<script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
-<link
-	rel="stylesheet"
-	type="text/css"
-	href="{% static 'css/forum-detail.css' %}"
+<link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+<script 
+  src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/forum-detail.css' %}"
 />
 <script defer src="{% static 'js/forum-detail.js' %}"></script>
-{% endblock %} {% block content %}
+{% endblock %}
+
+{% block content %}
 
 <section class="forum-container">
-	<div class="forum-img">
-		{% if forum.photo.url %}
-		<img
-			src="{{forum.photo.url}}"
-			alt="A photo of {{forum.name}}"
-			class="usr-img"
-		/>
-		{% else %}
-	
-		{% endif %}
-	</div>
-	<div class="forum-details">
-		<h1>{{ forum.name }}</h1>
-		{% if forum.spookyLevel > 0 %}
-		<h2>Spooky level: {{ forum.spookyLevel }} according to: {{ forum.author }}</h2>
-		{% else %}
-		<h2>Author: {{ forum.author }}</h2>
-		{% endif %}
-		<p>{{ forum.description }}</p>
-		<div class="forum-actions">
-			<a href="{% url 'forums_update' forum.id %}" class="btn warn">Edit</a>
-			<a href="{% url 'forums_delete' forum.id %}" class="btn danger">Delete</a>
-		</div>
-		<h3>Change {{ forum.name }}'s photo</h3>
-		<p id="file-name"></p>
-		
-	</div>
-</section>
-	<section class="posts">
-		<div class="subsection-title">
-			<h2>posts</h2>
-			
-		</div>
-		<h3>Add a Post</h3>
-		<form
-			action="{% url 'add_posts' forum.id %}"
-			method="post"
-			class="subsection-content"
-		>
-			{% if forum.post_for_today %}
-			<p class="posted">
-				{{forum.name}} has been posted all their topics for today!
-			</p>
-			{% else %}
-		
-		</form>
-		<h3>Past posts</h3>
-		{% if forum.post_set.all.count %}
-		<table>
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>topic</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for post in forum.post_set.all %}
-				<tr>
-					<td>{{ post.date }}</td>
-					<td>{{ post.get_topic_display }}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-		{% else %}
-		<div class="subsection-content">
-			<p>{{forum.name}} currently has no posts</p>
-		</div>
-		{% endif %}
-	</section>
+  <div class="forum-img">
+   
+  </div>
+  <div class="forum-details">
+    <h1>{{ forum.name }}</h1>
+    {% if forum.spookyLevel > 0 %}
+      <h2>Spooky Level: {{ forum.spookyLevel}}</h2>
+			<h2> Author: {{ forum.author}}</h2>
+    {% else %}
+      <h2>A {{ forum.author}} kitten.</h2>
+    {% endif %}
+    <p>{{ forum.description }}</p>
+    <div class="forum-actions">
+      <a href="{% url 'forums_update' forum.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'forums_delete' forum.id %}" class="btn danger">Delete</a>
+    </div>
+      
+    </div>
+    <h3>Add a Post</h3>
+    <form
+      action="{% url 'add_posts' forum.id %}"
+      method="post"
+      class="subsection-content"
+    >
+      {% csrf_token %}
+      <a href="{% url 'posts_create' %}">Add a Post</a>
+    </form>
+  </section>
+  <section class="posts">
+    <div class="subsection-title">
+      <h2>posts</h2>
+    </div>
+    <h3>{{ forum.name }}'s posts</h3>
+    <div class="subsection-content">
+      {% if forum.posts.count %}
+        {% for post in forum.posts.all %}
+          <div class="post-container">
+            <div 
+              class="color-block"
+              style="background-color: {{ post.color }}"
+            ></div>
+            <a href="{% url 'posts_detail' post.id %}">
+              <p>A {{ post.color }} {{ post.name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-posts">{{forum.name}} doesn't have any posts 😞</p>
+      {% endif %}
+    </div>
+    <h3>Available posts</h3>
+    <div class="subsection-content">
+      {% if posts.count %}
+        {% for post in posts.all %}
+          <div class="post-container">
+            <div 
+              class="color-block"
+              style="background-color: {{ post.color }}"
+            ></div>
+            <a href="{% url 'posts_detail' post.id %}">
+              <p>A {{ post.color }} {{ post.name }}</p>
+            </a>
+            <form action="{% url 'assoc_post' forum.id post.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn submit">Give post</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="all-posts">
+          {{forum.name}} already has all the available posts 🥳
+        </p>
+      {% endif %}
+    </div>
+  </section>
 </div>
 
 {% endblock %}
