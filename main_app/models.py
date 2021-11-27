@@ -30,6 +30,9 @@ class Posts(models.Model):
       default=TOPICS[0][0]
   )
   forum = models.ForeignKey(Forum, on_delete=models.CASCADE)
+  title = models.CharField
+  comment = models.TextField(max_length=250)
+  spookyLevel = models.IntegerField()
 
   class Meta:
     ordering = ['-date']
