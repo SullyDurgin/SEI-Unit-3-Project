@@ -4,6 +4,10 @@ body {
   color: white;
 }
 
+navbar {
+  background-color: blueviolet;
+}
+
 ul {
   list-style-type: none;
   margin: 0;

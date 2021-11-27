@@ -1,0 +1,49 @@
+*{
+  box-sizing: border-box;
+}
+
+  html {
+  
+    font-size: 14px;
+    background-color: rgb(86, 29, 139);
+  }
+
+a {
+  color: yellowgreen;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+
+.container{
+  margin: 20px;
+  padding: 20px;
+}
+
+.subforum{
+  margin-top: 20px;
+}
+
+.subforum-title{
+  background-color: darkgray;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 4px;
+}
+
+.subforum-row{
+  display: grid;
+  grid-template-columns: 7% 80% 13%;
+}
+
+.subforum-column{
+  padding: 14px;
+  margin: 4px;
+  border-radius: 5px;
+  background-color: darkgray;
+}

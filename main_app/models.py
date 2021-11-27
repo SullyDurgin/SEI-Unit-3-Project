@@ -19,7 +19,7 @@ class Forum(models.Model):
     return self.title
 
   def get_absolute_url(self):
-    return reverse('forums_detail', kwargs={'Forum_id': self.id})
+    return reverse('forums_detail', kwargs={'forum_id': self.id})
 
 
 class Posts(models.Model):
