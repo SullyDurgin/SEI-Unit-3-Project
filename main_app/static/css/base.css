@@ -1,12 +1,10 @@
 
 body {
-  background-color: black;
+  background-color: rgb(48, 20, 85);
   color: white;
 }
 
-navbar {
-  background-color: blueviolet;
-}
+
 
 ul {
   list-style-type: none;

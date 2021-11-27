@@ -5,11 +5,11 @@
   html {
   
     font-size: 14px;
-    background-color: rgb(86, 29, 139);
+    background-color: rgb(48, 20, 85));
   }
 
 a {
-  color: yellowgreen;
+  color: rgb(86, 255, 19);
   font-weight: bolder;
   text-decoration: none;
 }
@@ -17,6 +17,7 @@ a {
 h1 {
   font-size: 16px;
   font-weight: bolder;
+  color: rgb(255, 255, 255);
 }
 
 
@@ -30,7 +31,7 @@ h1 {
 }
 
 .subforum-title{
-  background-color: darkgray;
+  background-color: rgb(64, 56, 71);
   padding: 5px;
   border-radius: 5px;
   margin: 4px;
@@ -45,5 +46,16 @@ h1 {
   padding: 14px;
   margin: 4px;
   border-radius: 5px;
-  background-color: darkgray;
+  background-color: rgb(111, 57, 133);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subforum-icon {
+  font-size: 60px;
+  color: aliceblue;
 }
