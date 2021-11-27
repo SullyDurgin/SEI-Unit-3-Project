@@ -17,13 +17,13 @@ def about(request):
     return render(request, 'about.html')
 
 
-def Forums_index(request):
+def forums_index(request):
     forums = Forum.objects.all()
     # similar to forum.find({}) in MEN stack
     return render(request, 'forums/index.html', {'forums': forums})
 
 
-def Forums_detail(request, forum_id):
+def forums_detail(request, forum_id):
     forum = Forum.objects.get(id=forum_id)
     posts_form = PostsForm()
     return render(request, 'forums/detail.html', {

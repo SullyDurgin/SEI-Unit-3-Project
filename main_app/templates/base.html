@@ -17,21 +17,22 @@
 	</head>
 	<body>
 		<header>
-			<div class="header-logo-container">
-				<a href="{% url 'home' %}">
-					<img
-						src="{% static 'images/header-logo.svg' %}"
-						alt="The forum Collector Logo"
-					/>
-				</a>
-			</div>
-			<nav>
-				<ul>
+ <header>
+        <div class="navbar">
+            <nav id="navigation">
+                <ul class="nav-list">
+          <li><a href="{% url 'home' %}">Home</a></li>
 					<li><a href="{% url 'forums_index' %}">All Forums</a></li>
 					<li><a href="{% url 'forums_create' %}">Add a Forum</a></li>
 					<li><a href="{% url 'about' %}">About</a></li>
-				</ul>
-			</nav>
+				
+                </ul>
+            </nav>
+           
+        </div>
+
+
+
 		</header>
 		<main>{% block content %} {% endblock %}</main>
 	</body>
