@@ -11,7 +11,7 @@
 <form action="" method="POST" class="form">
   {% csrf_token %}
   <a 
-    href="{% url 'posts_detail' post.id %}" 
+    href="{% url 'posts_detail' posts.id %}" 
     class="btn secondary"
   >
     Cancel
