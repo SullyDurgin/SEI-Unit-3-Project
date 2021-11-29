@@ -1,7 +1,35 @@
 body {
-  background-color: rgb(81, 14, 206);
+  background-color: rgb(97, 63, 177);
 }
   
 a {
     color: white;
+  }
+
+h2 {
+  font-size: 40px;
+  font-weight: bolder;
+  padding: 15px;
+  border: solid rgb(97, 63, 177);
+  outline: solid;
+  border-radius: 20px;
+  color: rgb(86, 255, 19);
+  background-color: rgb(64, 56, 71);
+}
+
+.post-title{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 4px;
+}
+
+  .post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }

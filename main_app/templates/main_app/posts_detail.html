@@ -6,16 +6,15 @@
 />
 {% endblock %} {% block content %}
 
-<div class="card">
-	<div class="card-bg"></div>
-	<div class="card-content">
+<div class="post-container">
+	<div class="post-title">
 		<h2>{{ posts.title }}</h2>
 		<p>{{ posts.topic }}</p>
-		<p>{{ posts.author }}</p>
+		<p>Author of Post: {{ posts.author }}</p>	
+	</div>
 		<p>{{ posts.description }}</p>
 		<p>{{ posts.comment }}</p>
-		<p>{{ posts.spookyLevel }}</p>
-	</div>
+		<p>Spooky Level: {{ posts.spookyLevel }}</p>
 </div>
 <a href="{% url 'posts_update' posts.id %}" class="btn warn">Edit</a>
 <a href="{% url 'posts_delete' posts.id %}" class="btn danger">Delete</a>
