@@ -4,7 +4,7 @@ from . import views
 # localhost:8000/
 urlpatterns = [
     # localhost:8000/
-    path('', views.home, name="home"),
+    path('', views.Home.as_view(), name="home"),
     # localhost:8000/about/
     path('about/', views.about, name="about"),
     # localhost:8000/forums/
@@ -27,7 +27,7 @@ urlpatterns = [
     path('posts/', views.PostList.as_view(), name='posts_index'),
     path('posts/<int:pk>/update/', views.PostUpdate.as_view(), name='posts_update'),
     path('posts/<int:pk>/delete/', views.PostDelete.as_view(), name='posts_delete'),
-    # Associate a post with a cat
+    path("accounts/signup/", views.signup, name="signup")
  
 
 ]

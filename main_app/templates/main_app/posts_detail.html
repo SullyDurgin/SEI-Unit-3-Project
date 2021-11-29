@@ -17,7 +17,7 @@
 		<p>{{ posts.spookyLevel }}</p>
 	</div>
 </div>
-<a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
-<a href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
+<a href="{% url 'posts_update' posts.id %}" class="btn warn">Edit</a>
+<a href="{% url 'posts_delete' posts.id %}" class="btn danger">Delete</a>
 
 {% endblock %}

@@ -6,11 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="shortcut icon"
-			type="image/png"
-			href="{% static 'images/splash.svg' %}"
-		/>
+	
 		
 		<title>Spooky Forum</title>
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -22,14 +18,20 @@
  <header>
         <div class="navbar">
             <nav id="navigation">
-                <ul class="nav-list">
+        <ul class="nav-list">
+				{% if user.is_authenticated %}
           <li><a href="{% url 'home' %}">Home</a></li>
 					<li><a href="{% url 'forums_index' %}">All Forums</a></li>
 					<li><a href="{% url 'forums_create' %}">Add a Forum</a></li>
-					<li><a href="{% url 'about' %}">About</a></li>
-				
-                </ul>
-            </nav>
+					 <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'logout' %}">Log out</a></li>
+          {% else %}
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'home' %}">Login</a></li>
+						<li><a href="{% url 'signup' %}">Sign Up</a></li>
+          {% endif %}
+        </ul>
+      </nav>
            
         </div>
 

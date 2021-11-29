@@ -1,5 +1,9 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Forum, Posts
@@ -35,6 +39,10 @@ def forums_detail(request, forum_id):
         'forum': forum, 'post_form': post_form
     })
 
+
+def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
 
 class ForumCreate(CreateView):
     model = Forum
@@ -84,3 +92,18 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView):
     model = Posts
     success_url = '/posts/'
+
+
+def signup(request):
+  error_message = ""
+  if request.method == "POST":
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('forums_index')
+    else:
+      error_message = 'Invalid sign up! Try again!'
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)
