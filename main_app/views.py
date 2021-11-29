@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Forum, Posts
@@ -7,6 +8,10 @@ from .forms import PostsForm
 
 S3_BASE_URL = "https://s3.us-east-2.amazonaws.com/"
 BUCKET = "forum-collector-bucket-of-fun"
+
+
+class Home(LoginView):
+    template_name = 'home.html'
 
 
 def home(request):
@@ -25,9 +30,9 @@ def forums_index(request):
 
 def forums_detail(request, forum_id):
     forum = Forum.objects.get(id=forum_id)
-    posts_form = PostsForm()
+    post_form = PostsForm()
     return render(request, 'forums/detail.html', {
-        'forum': forum, 'posts_form': posts_form
+        'forum': forum, 'post_form': post_form
     })
 
 
@@ -56,23 +61,28 @@ def add_posts(request, forum_id):
 
 
 class PostCreate(CreateView):
-  model = Posts
-  fields = '__all__'
+    model = Posts
+    fields = ['date', 'title', 'author', 'date',
+              'comment', 'topic', 'spookyLevel']
+    
 
 
 class PostList(ListView):
-  model = Posts
+    model = Posts
 
 
 class PostDetail(DetailView):
-  model = Posts
+    model = Posts
 
 
 class PostUpdate(UpdateView):
-  model = Posts
-  fields = ['title', 'author', 'date', 'comment', 'topic']
+    model = Posts
+    fields = ['date', 'title', 'author', 'date',
+              'comment', 'topic', 'spookyLevel']
 
 
 class PostDelete(DeleteView):
-  model = Posts
-  success_url = '/posts/'
+    model = Posts
+    success_url = '/posts/'
+
+

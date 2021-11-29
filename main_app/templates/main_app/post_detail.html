@@ -14,8 +14,11 @@
 <div class="card">
   <div class="card-bg"></div>
   <div class="card-content">
-    <h2>{{ post.title }}</h2>
-    <p>A {{ post.topic }} post</p>
+    <h2>{{ posts.title }}</h2>
+    <p>A{{ posts.topic }} </p>
+    <p> {{ posts.author }} </p>
+    <p>{{ posts.comment }} </p>
+    <p>{{ posts.spookyLevel }}</p>
   </div>
 </div>
 <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>

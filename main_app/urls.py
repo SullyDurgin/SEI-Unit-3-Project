@@ -27,7 +27,6 @@ urlpatterns = [
     path('posts/', views.PostList.as_view(), name='posts_index'),
     path('posts/<int:pk>/update/', views.PostUpdate.as_view(), name='posts_update'),
     path('posts/<int:pk>/delete/', views.PostDelete.as_view(), name='posts_delete'),
-    # Associate a post with a cat
- 
+    path('', views.Home.as_view(), name='home'),
 
 ]

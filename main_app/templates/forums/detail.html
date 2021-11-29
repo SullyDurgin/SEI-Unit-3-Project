@@ -31,7 +31,7 @@
       <h2>Spooky Level: {{ forum.spookyLevel}}</h2>
 			<h2> Author: {{ forum.author}}</h2>
     {% else %}
-      <h2>A {{ forum.author}} kitten.</h2>
+      <h2>{{ forum.author}}</h2>
     {% endif %}
     <p>{{ forum.description }}</p>
     <div class="forum-actions">
@@ -40,59 +40,50 @@
     </div>
       
     </div>
-    <h3>Add a Post</h3>
     <form
       action="{% url 'add_posts' forum.id %}"
-      method="post"
+      method="POST"
       class="subsection-content"
     >
       {% csrf_token %}
-      <a href="{% url 'posts_create' %}">Add a Post</a>
+     {{post_form.as_p}}
+     <button type="submit" class="btn submit">Add Post</button>
     </form>
   </section>
   <section class="posts">
     <div class="subsection-title">
-      <h2>posts</h2>
     </div>
-    <h3>{{ forum.name }}'s posts</h3>
+    <h3>{{ forum.title }}'s posts</h3>
     <div class="subsection-content">
-      {% if forum.posts.count %}
-        {% for post in forum.posts.all %}
+      {% if forum.posts_set.all.count %}
+        {% for post in forum.posts_set.all %}
           <div class="post-container">
-            <div 
-              class="color-block"
-              style="background-color: {{ post.color }}"
-            ></div>
             <a href="{% url 'posts_detail' post.id %}">
-              <p>A {{ post.color }} {{ post.name }}</p>
+              <p>{{ post.title }} {{ post.author }}</p>
             </a>
           </div>
         {% endfor %}
       {% else %}
-        <p class="no-posts">{{forum.name}} doesn't have any posts 😞</p>
+        <p class="no-posts">{{forum.title}} doesn't have any posts 😞</p>
       {% endif %}
     </div>
-    <h3>Available posts</h3>
+    <h3>Current Posts</h3>
     <div class="subsection-content">
       {% if posts.count %}
         {% for post in posts.all %}
           <div class="post-container">
-            <div 
-              class="color-block"
-              style="background-color: {{ post.color }}"
-            ></div>
             <a href="{% url 'posts_detail' post.id %}">
-              <p>A {{ post.color }} {{ post.name }}</p>
+              <p> {{ post.title}} {{ post.author }}</p>
             </a>
-            <form action="{% url 'assoc_post' forum.id post.id %}" method="post">
+            <form action="{% url 'add_posts' forum.id post.id %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn submit">Give post</button>
+              <button type="submit" class="btn submit">Add Post</button>
             </form>
           </div>
         {% endfor %}
       {% else %}
         <p class="all-posts">
-          {{forum.name}} already has all the available posts 🥳
+          {{forum.name}} 
         </p>
       {% endif %}
     </div>
