@@ -28,8 +28,46 @@ h2 {
 }
 
   .post-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
+
+.post-des{
+font-size: 20px;
+  margin: 100px;
+
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: rgb(86, 255, 19);
+  background-color: rgb(64, 56, 71);
+  border: solid;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.btn:hover {background-color: #3e8e41}
+
+.btn:active {
+  text-align: center;
+  flex-direction: row;
+  background-color: rgb(64, 56, 71);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

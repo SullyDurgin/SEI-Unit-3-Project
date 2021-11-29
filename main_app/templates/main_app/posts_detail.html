@@ -12,11 +12,16 @@
 		<p>{{ posts.topic }}</p>
 		<p>Author of Post: {{ posts.author }}</p>	
 	</div>
+	<div class="post-des">
 		<p>{{ posts.description }}</p>
 		<p>{{ posts.comment }}</p>
+		</div>
 		<p>Spooky Level: {{ posts.spookyLevel }}</p>
 </div>
+
+<div class="buttons">
 <a href="{% url 'posts_update' posts.id %}" class="btn warn">Edit</a>
 <a href="{% url 'posts_delete' posts.id %}" class="btn danger">Delete</a>
+</div>
 
 {% endblock %}
