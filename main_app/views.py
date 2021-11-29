@@ -63,7 +63,7 @@ def add_posts(request, forum_id):
 class PostCreate(CreateView):
     model = Posts
     fields = ['date', 'title', 'author', 'date',
-              'comment', 'topic', 'spookyLevel']
+              'comment', 'topic', 'spookyLevel', 'description']
     
 
 
@@ -84,5 +84,3 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView):
     model = Posts
     success_url = '/posts/'
-
-

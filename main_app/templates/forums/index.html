@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
 <link
 	rel="stylesheet"
 	type="text/css"
@@ -28,6 +31,7 @@
 					<div class="post-container">
 						<a href="{% url 'posts_detail' post.id %}">
 							<p>{{ post.title }}</p>
+							<p>{{ post.description }}</p>
 							
 						</a>
 					</div>

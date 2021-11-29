@@ -15,9 +15,6 @@
   {% endif %}
   <img src="{% static 'images/nerd-forum.svg' %}" alt="A forum using a computer"/>
 </div>
-{% comment %} 
-  Leaving the action empty makes the form post to the same url used to display it
-{% endcomment %}
 
 <form action="" method="post" class="form-container">
   {% csrf_token %}

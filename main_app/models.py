@@ -34,7 +34,8 @@ class Posts(models.Model):
   forum = models.ForeignKey(Forum, on_delete=models.CASCADE)
   title = models.CharField(max_length=100)
   author = models.CharField(max_length=100)
-  comment = models.TextField(max_length=250)
+  comment = models.TextField(max_length=550)
+  description = models.TextField(max_length=250)
   spookyLevel = models.IntegerField()
 
   class Meta:
