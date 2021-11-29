@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -126,3 +130,8 @@ LOGIN_REDIRECT_URL = 'forums_index'
 LOGOUT_REDIRECT_URL = 'home'
 
 LOGIN_URL = "home"
+
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
