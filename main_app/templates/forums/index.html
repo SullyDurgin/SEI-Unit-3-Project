@@ -17,37 +17,47 @@
 			<a href="{% url 'forums_detail' forum.id %}">
 				<div class="subforum-title">
 					<h1>{{ forum.title }}</h1>
-				</div></a
-			>
+				</div>
+			</a>
+			   {% if forum.posts_set.all.count %} {% for post in forum.posts_set.all %}
 			<div class="subforum-row">
 				<div class="subforum-icon subforum-column center">
 					<i class="fas fa-ghost"></i>
 				</div>
 				<div class="subforum-descritption subforum-column">
-					{% if forum.posts_set.all.count %} {% for post in forum.posts_set.all
-					%}
 					<div class="post-container">
 						<a href="{% url 'posts_detail' post.id %}">
-							<p>{{ post.title }} {{ post.author }}</p>
+							<p>{{ post.title }}</p>
+							
 						</a>
 					</div>
-					{% endfor %} {% else %}
-					<p class="no-posts">{{forum.title}} doesn't have any posts 😞</p>
-					{% endif %}
 				</div>
-				<div class="subform-stats subforum-column center">
+				
+					<div class="subform-stats subforum-column center">
 					<span>
 						{% if forum.spookyLevel > 0 %}
 						<p>The spookiness Level is at: {{ forum.spookyLevel }}</p>
 						<p>Author: {{ forum.author }}</p>
 						{% else %}
-						<p>Author: {{ forum.author }}</p>
+						<p>Author:  {{ post.author }}</p>
 						{% endif %}
 					</span>
 				</div>
-			</div>
-		</div>
-		{% endfor %}
+				</div>
+				   {% endfor %} 
+					 {% else %}
+				<div class="subforum-row">
+					<div class="subforum-icon subforum-column center">
+						<i class="fas fa-ghost"></i>
+					</div>
+					<div class="subforum-descritption subforum-column">
+						<p class="no-posts">{{forum.title}} doesn't have any posts 😞</p>
+						</div>
+						{% endif %}
+					</div>
+			
+	
+			  		{% endfor %}
 	</div>
 </body>
 

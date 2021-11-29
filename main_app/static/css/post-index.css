@@ -24,6 +24,7 @@ h1 {
 .container{
   margin: 20px;
   padding: 20px;
+  
 }
 
 .subforum{
@@ -46,7 +47,7 @@ h1 {
   padding: 14px;
   margin: 4px;
   border-radius: 5px;
-  background-color: rgb(111, 57, 133);
+  background-color: rgb(85, 65, 116);
 }
 
 .center {
