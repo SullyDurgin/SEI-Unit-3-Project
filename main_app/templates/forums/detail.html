@@ -24,13 +24,13 @@
 <section class="forum-container">
   <div class="forum-details">
     <div class="forum-title">
-    <h1 class="forum-titles">{{ forum.title }}</h1>
+    <h1 class="forum-titles">{{ forum.title }} forum created by: {{ forum.author}}</h1>
     </div>
     {% if forum.spookyLevel > 0 %}
       <h2>Spooky Level: {{ forum.spookyLevel}}</h2>
-			<h2> Author: {{ forum.author}}</h2>
+			<h2> Author: {{ post.author}}</h2>
     {% else %}
-      <h2>{{ forum.author}}</h2>
+      <h2>{{ post.author}}</h2>
     {% endif %}
     <p>{{ forum.description }}</p>
     <div class="forum-actions">

@@ -15,7 +15,7 @@ a {
 }
 
 h1 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bolder;
   color: rgb(255, 255, 255);
 }
@@ -33,7 +33,7 @@ h1 {
 .subforum-title{
   background-color: rgb(64, 56, 71);
   padding: 5px;
-  apdding-top: 50px;
+  padding-top: 50px;
   border-radius: 5px;
   margin: 4px;
 }

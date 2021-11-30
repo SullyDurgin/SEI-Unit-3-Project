@@ -19,7 +19,8 @@
 		<div class="subforum">
 			<a href="{% url 'forums_detail' forum.id %}">
 				<div class="subforum-title">
-					<h1>{{ forum.title }}</h1>
+					<h1>{{ forum.title }} </h1>
+					<h1>Forum Created By: {{ forum.author }} </h1>
 				</div>
 			</a>
 			   {% if forum.posts_set.all.count %} {% for post in forum.posts_set.all %}
@@ -41,7 +42,7 @@
 					<span>
 						{% if forum.spookyLevel > 0 %}
 						<p>The spookiness Level is at: {{ forum.spookyLevel }}</p>
-						<p>Author: {{ forum.author }}</p>
+						<p>Author: {{ post.author }}</p>
 						{% else %}
 						<p>Author:  {{ post.author }}</p>
 						{% endif %}
