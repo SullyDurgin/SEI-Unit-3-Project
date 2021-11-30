@@ -16,7 +16,7 @@
   type="text/css" 
   href="{% static 'css/forum-detail.css' %}"
 />
-<script defer src="{% static 'js/forum-detail.js' %}"></script>
+<script defer src="{% static 'js/post-detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -44,6 +44,7 @@
       action="{% url 'add_posts' forum.id %}"
       method="POST"
       class="subsection-content"
+      autocomplete="off"
     >
       {% csrf_token %}
      {{post_form.as_p}}
