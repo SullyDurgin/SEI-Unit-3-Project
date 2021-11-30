@@ -46,4 +46,7 @@ Take a look at the planning process: https://trello.com/b/fXGf0PBs/unit-3-projec
 
 ## Next Steps
 
-- 
+- Add mobile functionality
+- Update CSS to be more polished
+- Add a search function
+- Add share links to share posts and forums to other websites
