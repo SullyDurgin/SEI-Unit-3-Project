@@ -2,8 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Forum, Posts
@@ -26,12 +26,13 @@ def about(request):
     return render(request, 'about.html')
 
 
+@login_required
 def forums_index(request):
     forums = Forum.objects.all()
-    # similar to forum.find({}) in MEN stack
     return render(request, 'forums/index.html', {'forums': forums})
 
 
+@login_required
 def forums_detail(request, forum_id):
     forum = Forum.objects.get(id=forum_id)
     post_form = PostsForm()
@@ -49,16 +50,17 @@ class ForumCreate(CreateView):
     fields = ['title', 'author', 'comment', 'spookyLevel']
 
 
-class ForumUpdate(UpdateView):
+class ForumUpdate(LoginRequiredMixin, UpdateView):
     model = Forum
     fields = ['author', 'comment', 'spookyLevel']
 
 
-class ForumDelete(DeleteView):
+class ForumDelete(LoginRequiredMixin, DeleteView):
     model = Forum
     success_url = '/forums/'
 
 
+@login_required
 def add_posts(request, forum_id, user_id):
     form = PostsForm(request.POST)
     if form.is_valid():
@@ -69,34 +71,26 @@ def add_posts(request, forum_id, user_id):
     return redirect("forums_index")
 
 
-class PostCreate(CreateView):
+class PostCreate(LoginRequiredMixin, CreateView):
     model = Posts
     fields = ['date', 'title', 'author', 'date',
               'comment', 'topic', 'spookyLevel', 'description']
     
 
-
-class PostList(ListView):
+class PostList(LoginRequiredMixin, ListView):
     model = Posts
 
 
-class PostDetail(DetailView):
+class PostDetail(LoginRequiredMixin, DetailView):
     model = Posts
 
-# def posts_detail(request, post_id):
-#     thispost = Posts.object.get(id = post_id)
-#     return render(request, "main_app/posts_detail.html", {
-#         "post":thispost
-#     })
 
-
-
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Posts
     fields = ['date', 'title', 'author', 'date','comment', 'topic', 'spookyLevel', 'description']
    
 
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
     model = Posts
     success_url = '/posts/'
 
