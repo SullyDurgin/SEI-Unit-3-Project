@@ -39,14 +39,13 @@ h1 {
   color: #fff;
   font-size: 5em;
   letter-spacing: 8px;
-  font-family: 'Press Start 2P';
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 400;
   /*Create overlap*/
   
   margin: 0;
   line-height: 0;
   /*Animation*/
-  
   animation: glitch1 2.5s infinite;
 }
 
