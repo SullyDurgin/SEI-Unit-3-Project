@@ -1,6 +1,9 @@
 .form-container {
   display: flex;
   flex-direction: column;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 50px;
+  font-size: 30px;
   width: 100%;
 }
 
@@ -33,7 +36,63 @@ td > textarea {
   font-family: inherit;
 }
 
+.sign-title{ 
+  text-align: center;
+  font-size: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 4px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+}
 .btn {
-  align-self: flex-end;
-  margin-right: 40px;
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: rgb(86, 255, 19);
+  background-color: rgb(64, 56, 71);
+  border: solid;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.btn:hover {background-color: #3e8e41}
+
+.btn:active {
+  text-align: center;
+  flex-direction: row;
+  background-color: rgb(64, 56, 71);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.btn-submit {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.btn-box{
+  display: flex;
+  justify-content: center;
+}
+
+.form-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border: solid;
+  border-radius: 15px;
+  outline: solid  chartreuse;
+  padding-bottom: 10px;
 }
