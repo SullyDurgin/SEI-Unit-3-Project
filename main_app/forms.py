@@ -5,4 +5,4 @@ from .models import Posts
 class PostsForm(ModelForm):
   class Meta:
     model = Posts
-    fields = ["date", "topic", "title", "author", "comment", "spookyLevel"]
+    fields = ["date", "topic", "title", "author", "comment", "description", "spookyLevel"]

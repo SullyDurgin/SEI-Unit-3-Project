@@ -24,7 +24,8 @@
 <section class="forum-container">
   <div class="forum-details">
     <div class="forum-title">
-    <h1 class="forum-titles">{{ forum.title }} forum created by: {{ forum.author}}</h1>
+    <h1 class="forum-titles">{{ forum.title }} </h1>
+      <h1>Forum created by: {{ forum.author}}</h1>
     </div>
     {% if forum.spookyLevel > 0 %}
       <h2>Spooky Level: {{ forum.spookyLevel}}</h2>
@@ -68,7 +69,7 @@
         <p class="no-posts">{{forum.title}} doesn't have any posts 😞</p>
       {% endif %}
     </div>
-    <h3>Current Posts</h3>
+  
     <div class="subsection-content">
       {% if posts.count %}
         {% for post in posts.all %}
