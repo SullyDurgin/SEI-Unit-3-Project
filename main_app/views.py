@@ -83,12 +83,18 @@ class PostList(ListView):
 class PostDetail(DetailView):
     model = Posts
 
+# def posts_detail(request, post_id):
+#     thispost = Posts.object.get(id = post_id)
+#     return render(request, "main_app/posts_detail.html", {
+#         "post":thispost
+#     })
+
+
 
 class PostUpdate(UpdateView):
     model = Posts
-    fields = ['date', 'title', 'author', 'date',
-              'comment', 'topic', 'spookyLevel', 'description']
-
+    fields = ['date', 'title', 'author', 'date','comment', 'topic', 'spookyLevel', 'description']
+   
 
 class PostDelete(DeleteView):
     model = Posts

@@ -15,8 +15,6 @@ class Forum(models.Model):
   author = models.CharField(max_length=100)
   comment = models.TextField(max_length=250)
   spookyLevel = models.IntegerField()
- 
-  
 
   def __str__(self):
     return self.title
@@ -49,11 +47,8 @@ class Posts(models.Model):
     return f"{self.get_topic_display()} on {self.date}"
 
   def get_absolute_url(self):
-    return reverse('posts_detail', kwargs={'posts_id': self.id})
+    return reverse('posts_detail', kwargs={'pk': self.pk})
 
   def posts_for_today(self):
     return self.posts_set.filter(date=date.today()).count() >= len(TOPICS)
     
-
-def get_absolute_url(self):
-    return reverse('posts_detail', kwargs={'pk': self.id})
