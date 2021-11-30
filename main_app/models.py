@@ -15,7 +15,7 @@ class Forum(models.Model):
   author = models.CharField(max_length=100)
   comment = models.TextField(max_length=250)
   spookyLevel = models.IntegerField()
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
+ 
   
 
   def __str__(self):
