@@ -1,6 +1,4 @@
-body {
-  background-color: rgb(97, 63, 177);
-}
+
   
 a {
     color: white;
@@ -38,6 +36,7 @@ h2 {
 .post-des{
   display: flex;
   justify-content: center;
+  flex-direction: column;
   font-size: 20px;
   margin: 100px;
 
