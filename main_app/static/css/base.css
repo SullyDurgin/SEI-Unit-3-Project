@@ -5,13 +5,12 @@ body {
 }
 
 
-
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  
 }
 
 li {
@@ -24,6 +23,15 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+   font-size: 40px;
+  font-weight: bolder;
+  padding: 15px;
+  border: solid rgb(97, 63, 177);
+  outline: solid;
+  border-radius: 20px;
+  margin: 50px;
+  color: rgb(86, 255, 19);
+  background-color: rgb(64, 56, 71);
 }
 
 li a:hover:not(.active) {
@@ -32,4 +40,23 @@ li a:hover:not(.active) {
 
 .active {
   background-color: #04AA6D;
+}
+
+.forum-titles {  
+  font-size: 40px;
+  font-weight: bolder;
+  padding: 15px;
+  border: solid rgb(97, 63, 177);
+  outline: solid;
+  border-radius: 20px;
+  margin: 50px;
+  color: rgb(86, 255, 19);
+  background-color: rgb(64, 56, 71);
+}
+
+.forum-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

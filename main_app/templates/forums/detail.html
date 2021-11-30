@@ -22,11 +22,10 @@
 {% block content %}
 
 <section class="forum-container">
-  <div class="forum-img">
-   
-  </div>
   <div class="forum-details">
-    <h1>{{ forum.title }}</h1>
+    <div class="forum-title">
+    <h1 class="forum-titles">{{ forum.title }}</h1>
+    </div>
     {% if forum.spookyLevel > 0 %}
       <h2>Spooky Level: {{ forum.spookyLevel}}</h2>
 			<h2> Author: {{ forum.author}}</h2>
@@ -37,7 +36,8 @@
     <div class="forum-actions">
       <a href="{% url 'forums_update' forum.id %}" class="btn warn">Edit</a>
       <a href="{% url 'forums_delete' forum.id %}" class="btn danger">Delete</a>
-    </div>
+    
+  </div>
       
     </div>
     <form
