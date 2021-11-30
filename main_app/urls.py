@@ -18,7 +18,7 @@ urlpatterns = [
 # localhost:8000/forums/:pk/delete
      path('forums/<int:pk>/delete', views.ForumDelete.as_view(), name="forums_delete"),
 # localhost:8000/forums/:forum_id/add_post/
-     path('forums/<int:forum_id>/add_posts/', views.add_posts, name="add_posts"),
+     path('forums/<int:forum_id>/<int:user_id>/add_posts/', views.add_posts, name="add_posts"),
      path('posts/create/', views.PostCreate.as_view(), name='posts_create'),
      path('posts/<int:pk>/', views.PostDetail.as_view(), name='posts_detail'),
      path('posts/', views.PostList.as_view(), name='posts_index'),

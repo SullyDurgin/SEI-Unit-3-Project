@@ -59,13 +59,14 @@ class ForumDelete(DeleteView):
     success_url = '/forums/'
 
 
-def add_posts(request, forum_id):
+def add_posts(request, forum_id, user_id):
     form = PostsForm(request.POST)
     if form.is_valid():
         new_posts = form.save(commit=False)
         new_posts.forum_id = forum_id
+        new_posts.user_id = user_id
         new_posts.save()
-    return redirect("forums_detail", forum_id=forum_id)
+    return redirect("forums_index")
 
 
 class PostCreate(CreateView):

@@ -31,6 +31,7 @@ class Posts(models.Model):
       choices=TOPICS,
       default=TOPICS[0][0]
   )
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   forum = models.ForeignKey(Forum, on_delete=models.CASCADE)
   title = models.CharField(max_length=100)
   author = models.CharField(max_length=100)
