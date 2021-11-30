@@ -87,7 +87,7 @@ class PostDetail(DetailView):
 class PostUpdate(UpdateView):
     model = Posts
     fields = ['date', 'title', 'author', 'date',
-              'comment', 'topic', 'spookyLevel']
+              'comment', 'topic', 'spookyLevel', 'description']
 
 
 class PostDelete(DeleteView):
