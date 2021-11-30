@@ -4,18 +4,34 @@ body {
 
 #container {
   width: 70vw;
-  margin: 30vw auto;
+  margin: 17vw auto;
+}
+
+.login-form {
+  font-size: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: gray;
+  display: flex;
+  justify-content: center;
+
+}
+
+input {
+  border: solid;
+  border-radius: 15px;
+  outline: solid  chartreuse;
+  padding: 10px;
 }
 
 img {
   height: 145%;
-   background-position: center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-    position:absolute;
-    left:0px;
-    top:0px;
-    z-index:-1;
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:-1;
 }
 
 h1 {

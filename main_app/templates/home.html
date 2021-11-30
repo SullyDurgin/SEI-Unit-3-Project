@@ -7,7 +7,20 @@
 
 {% block content %}
 
-<section class="logo-container">
+
+
+{% if not user.is_authenticated %}
+  <section class="login-form">
+    <form action="{% url 'home' %}" method="post" class="login">
+      <h2>Login</h2>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input class="form-input" type="hidden" name="next" value="{{ next }}">
+      <button type="submit" class="btn submit">Login</button>
+    </form>
+  </section>
+
+  <section class="logo-container">
   <div class="forum-container">
     <img src="{% static 'images/ghost-background.jpg' %}" alt="The Spooky Forum" />
   </div>
@@ -17,17 +30,6 @@
   <h1>COME ON IN</h1>
 </div>
 </section>
-
-{% if not user.is_authenticated %}
-  <section>
-    <form action="{% url 'home' %}" method="post" class="login">
-      <h1>Login</h1>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class="btn submit">Login</button>
-    </form>
-  </section>
 {% endif %}
 
 {% endblock %}

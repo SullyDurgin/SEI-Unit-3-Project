@@ -17,6 +17,11 @@ li {
   float: left;
 }
 
+ul.nav-list {
+  display: flex;
+  justify-content: center;
+}
+
 li a {
   display: block;
   color: white;
@@ -52,6 +57,9 @@ li a:hover:not(.active) {
   margin: 50px;
   color: rgb(86, 255, 19);
   background-color: rgb(64, 56, 71);
+}
+.form-input {
+  
 }
 
 .forum-title{
