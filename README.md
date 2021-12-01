@@ -7,7 +7,6 @@ Visit the app here: https://thestrangeandunusual.herokuapp.com/
 
 Take a look at the planning process: https://trello.com/b/fXGf0PBs/unit-3-project
 ## Desktop Screenshots
-#### Home Page (Before/After login)
 
 ![Desktop](https://i.ibb.co/S6pB048/Screen-Shot-2021-11-30-at-5-27-45-PM.png)
 
@@ -17,13 +16,10 @@ Take a look at the planning process: https://trello.com/b/fXGf0PBs/unit-3-projec
 #### Post Detail Page
 ![Desktop](https://i.ibb.co/YTCmp15/Screen-Shot-2021-11-30-at-5-32-24-PM.png)
 
-## Mobile Screenshots 
 
 
 
 ##  Technologies & Sources Used
-
-  
 
 - HTML
 
